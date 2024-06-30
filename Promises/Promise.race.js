@@ -24,6 +24,6 @@ const promise2 = new Promise((resolve, reject) => {
 
 race(["shivam", promise1, promise2]).then((value) => {
   console.log(value);
- }, (err)=> {
+}, (err) => {
   console.error(err);
- })
+})

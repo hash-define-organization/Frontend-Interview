@@ -18,7 +18,7 @@ function any(promiseArr) {
         count++;
         result[idx] = err;
         if (count === promiseArr.length) {
-          rej(new AggregateError('No Promise in Promise.any was resolved', result)); 
+          rej(new AggregateError('No Promise in Promise.any was resolved', result));
         }
       });
 
@@ -28,5 +28,5 @@ function any(promiseArr) {
 }
 
 any(["shivam", Promise.resolve(0), Promise.reject(4), Promise.reject(5)])
-.then(val => console.log(val))
-.catch(err => console.log(err));
+  .then(val => console.log(val))
+  .catch(err => console.log(err));

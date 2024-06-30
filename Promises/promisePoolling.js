@@ -58,57 +58,57 @@
 
 
 
-const p0 = new Promise((resolve) =>{
+const p0 = new Promise((resolve) => {
   setTimeout(() => resolve(1000), 9000)
 })
 
-const p1 = new Promise((resolve) =>{
+const p1 = new Promise((resolve) => {
   setTimeout(() => resolve(2000), 6000)
 })
-const p2 = new Promise((resolve) =>{
+const p2 = new Promise((resolve) => {
   setTimeout(() => resolve(3000), 1000)
 })
-const p3 = new Promise((resolve) =>{
+const p3 = new Promise((resolve) => {
   setTimeout(() => resolve(4000), 1000)
 })
-const p4 = new Promise((resolve) =>{
+const p4 = new Promise((resolve) => {
   setTimeout(() => resolve(5000), 1000)
 })
-const p5 = new Promise((resolve) =>{
+const p5 = new Promise((resolve) => {
   setTimeout(() => resolve(6000), 1000)
 })
 
 
 const promises = [p0, p1, p2, p3, p4, p5];
-function pool(lists, size){
-  let st= Date.now();
-  return new Promise((resolve) =>{
-    let curr = 0; 
+function pool(lists, size) {
+  let st = Date.now();
+  return new Promise((resolve) => {
+    let curr = 0;
     let si = 0;
     let results = [];
     let dis = 0;
-    function helpers(){
-      if(curr >= lists.length){
+    function helpers() {
+      if (curr >= lists.length) {
         let ei = Date.now();
-        return resolve({res: results, time: ei - st, dis: dis});
+        return resolve({ res: results, time: ei - st, dis: dis });
       }
-      while(si < size && curr < lists.length){
+      while (si < size && curr < lists.length) {
         si++;
-        lists[curr++].then((val)=> {
+        lists[curr++].then((val) => {
           results.push(val);
-          dis+= val;
+          dis += val;
           si--;
           helpers();
-        }).catch((err)=> console.log(err, "Err pooling"))
+        }).catch((err) => console.log(err, "Err pooling"))
+      }
     }
-  }
     helpers();
   })
 
 }
 
-(async ()=>{
-  const res= await pool(promises, 2)
+(async () => {
+  const res = await pool(promises, 2)
   console.log(`pooling`, res)
 })()
 

@@ -26,7 +26,7 @@ class MyPromise {
   static reject(value) {
     return new MyPromise((_, rej) => rej(value))
   }
- 
+
   constructor(exc) {
     const resolve = (val) => {
       this.resolvedData = val;
@@ -58,14 +58,14 @@ class MyPromise {
     return this;
   }
 
-  catch (fn) {
+  catch(fn) {
     this.rejectedChain.push(fn);
     if (this.isRejected) {
       this.rejectedData = fn(this.rejectedData);
     }
     return this;
-  } 
-  
+  }
+
   finally(fn) {
     this.resolvedChain.push(fn);
     this.rejectedChain.push(fn);
@@ -79,11 +79,11 @@ class MyPromise {
 }
 
 new MyPromise((res, rej) => {
-    setTimeout(() => {
-       rej(100);
-     }, 1000);
-    res("10");
-  })
+  setTimeout(() => {
+    rej(100);
+  }, 1000);
+  res("10");
+})
   .then(val => {
     console.log(val, "hashdefine");
     return val * 2;

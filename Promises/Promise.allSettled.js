@@ -4,7 +4,7 @@
  */
 function allSettled(promiseArr) {
   // your code here
-   if (!promiseArr.length) {
+  if (!promiseArr.length) {
     return Promise.resolve([]);
   }
   let result = [];
