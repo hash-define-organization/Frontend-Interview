@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red-text {
+            color: red;
+        }
+
+        .white-text {
+            color: white;
+        }
+
+        .blue-text {
+            color: blue;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        /* for better visibility of white text */
+    </style>
+    <script src="./getElementByClassName.js"></script>
+    <script src="./getElementByClassNameHierarchy.js"></script>
+    <script src="./getElementById.js"></script>
+    <script src="./querySelectorAll.js"></script>
+    <script src="./getElementByStyleName.js"></script>
+    <script src="./getElementByTagName.js"></script>
+</head>
+
+
+<body id="mm">
+    <div class="red-text">Red Text</div>
+    <div class="white-text">White Text</div>
+    <div class="blue-text">Blue Text</div>
+    <div style="color: white;">Inline White Text</div>
+    <p class="white-text">Another White Text</p>
+
+    <div class="root">
+        <div class="p1">
+            <div class="p2">
+                <h1>
+                    shivam
+                </h1>
+            </div>
+        </div>
+
+        <div id="roots">
+            <div id="p11">
+                <div id="p22">
+                    <h1>
+                        shivam
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="a" id="a-1">
+            <div class="b" id="b-1">
+                <div class="c" id="c-1" />
+                <div class="c" id="c-2" />
+            </div>
+            <div class="c" id="c-3" />
+        </div>
+
+    </div>
+
+</body>
+
+</html>
